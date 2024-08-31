@@ -70,7 +70,6 @@ def categorize_resumes(resume_dir):
     print(df)
 
     # resumes to their respective category folders
-
     output_directory = 'categorized_resumes'
     for filename, category in categorized_resumes.items():
         category_dir = os.path.join(output_directory, category)
