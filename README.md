@@ -6,25 +6,25 @@ This project aims to automatically categorize resumes based on their domain (e.g
 
 ## Model Selection
 
-For this project, we chose to use a [Your chosen model, e.g., Random Forest Classifier] due to its [reasons for selection, e.g., ability to handle high-dimensional data, good performance on text classification tasks, etc.].
+For this project, we chose to use a ML [Random Forest Classifier] due to its ability to handle high-dimensional data, good performance on classification tasks.
 
 ## Preprocessing and Feature Extraction
 
 The preprocessing pipeline includes the following steps:
 
-1. Text Cleaning: Remove special characters, numbers, and extra whitespace.
+1. Text Cleaning: Remove special characters, numbers, extra whitespace, links, emails so on.
 2. Tokenization: Split the text into individual words or tokens.
 3. Lowercasing: Convert all text to lowercase to ensure consistency.
 4. Stop Word Removal: Remove common words that don't contribute much to the classification.
-5. Stemming/Lemmatization: Reduce words to their root form to capture similar words.
+5. Stemming: Reduce words to their root form to capture similar words.
 
-For feature extraction, we use TF-IDF (Term Frequency-Inverse Document Frequency) vectorization. This method captures the importance of words in each resume relative to the entire corpus, which is particularly useful for document classification tasks.
+For feature extraction, we use `TF-IDF` (Term Frequency-Inverse Document Frequency) vectorization. This method captures the importance of words in each resume relative to the entire corpus, which is particularly useful for document classification tasks.
 
 ## Running the Script
 
 To run the script, follow these steps:
 
-1. Ensure you have Python 3.x installed on your system.
+1. Ensure you have Python 3.11 installed on your system.
 2. Install the required dependencies:
 `pip install -r requirements.txt`
 
@@ -44,14 +44,13 @@ After running the script, you can expect the following outputs:
 
 The model's performance was evaluated using the following metrics:
 
-- Accuracy: 11%
-- Precision: 11%
-- Recall: 11%
-- F1-score: 11%
+- Accuracy: `66.0`%
+- Precision: `63.0`%
+- Recall: `66.0`%
+- F1-score: `63.0`%
 
 
 ## Future Improvements
 
-- Implement more advanced NLP techniques like word embeddings or transformers for better feature representation.
+- Advanced NLP techniques like word embeddings or transformers for better feature representation.
 - Explore ensemble methods to potentially improve classification accuracy.
-- Implement a user interface for easier interaction with the categorization system.

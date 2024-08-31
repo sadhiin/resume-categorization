@@ -1,6 +1,7 @@
 import os
 import sys
 import re
+import argparse
 import pandas as pd
 import pickle
 import nltk
@@ -40,7 +41,7 @@ def preprocess_text(text):
     return ' '.join(words)
 
 
-def categorize_resumes(resume_dir):
+def categorize_resumes(resume_dir,output_directory):
     categorized_resumes = {}
     # loading the saved pkls for label encoder, tfidf vectorizer and the model
     with open(os.path.join(saved_models_dir, "label_encoder.pkl"), 'rb') as f:
@@ -70,7 +71,9 @@ def categorize_resumes(resume_dir):
     print(df)
 
     # resumes to their respective category folders
-    output_directory = 'categorized_resumes'
+    if output_directory is None:
+        output_directory = 'categorized_resumes'
+
     for filename, category in categorized_resumes.items():
         category_dir = os.path.join(output_directory, category)
         if not os.path.exists(category_dir):
@@ -79,10 +82,20 @@ def categorize_resumes(resume_dir):
         shutil.copyfile(os.path.join(resume_dir, filename), os.path.join(category_dir, filename))
 
 
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: python script.py path/to/dir")
+
+def main():
+    parser = argparse.ArgumentParser(description="Categorize resumes based on their content using a trained model.")
+    parser.add_argument("input_directory", help="Path to the directory containing resumes to be categorized.")
+    parser.add_argument("-o", "--output_directory", default="categorized_resumes",
+                        help="Path to the directory where categorized resumes will be saved. Default is 'categorized_resumes'.")
+
+    args = parser.parse_args()
+
+    if not os.path.exists(args.input_directory):
+        print(f"Error: The input directory '{args.input_directory}' does not exist.")
         sys.exit(1)
 
-    input_directory = sys.argv[1]
-    categorize_resumes(input_directory)
+    categorize_resumes(args.input_directory, args.output_directory)
+
+if __name__ == '__main__':
+    main()
