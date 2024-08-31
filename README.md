@@ -22,6 +22,8 @@ For feature extraction, we use `TF-IDF` (Term Frequency-Inverse Document Frequen
 
 ![Word-Cloud](./reports/processed_wc.png)
 
+### Detail implementation at this 📒[Jupyter Notebook](./notebooks/notebook.ipynb)
+
 ## Running the Script
 
 To run the script, follow these steps:
