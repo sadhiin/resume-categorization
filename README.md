@@ -20,6 +20,8 @@ The preprocessing pipeline includes the following steps:
 
 For feature extraction, we use `TF-IDF` (Term Frequency-Inverse Document Frequency) vectorization. This method captures the importance of words in each resume relative to the entire corpus, which is particularly useful for document classification tasks.
 
+![Word-Cloud](./reports/processed_wc.png)
+
 ## Running the Script
 
 To run the script, follow these steps:
@@ -41,6 +43,8 @@ After running the script, you can expect the following outputs:
 2. A CSV file named `categorized_resumes.csv` will be created in the input directory, containing two columns: `filename` and `category`.
 
 ## Evaluation Metrics
+### Highest accuracy model found with `RandomForest`
+![Model accuracy](./reports/model_accuracy_comparison.png)
 
 The model's performance was evaluated using the following metrics:
 
@@ -49,6 +53,9 @@ The model's performance was evaluated using the following metrics:
 - Recall: `66.0`%
 - F1-score: `63.0`%
 
+![Testset-eval](./reports/model_eval.png)
+
+![Confusion-matrix](./reports/confusion_matrix.png)
 
 ## Future Improvements
 
